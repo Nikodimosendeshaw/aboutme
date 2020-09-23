@@ -5,13 +5,14 @@ body{
 }
 .abc{
 
-    border: 50px;
+    border: auto;
     background-color: #DDF8E8;
-    padding-top: 150px;
+    padding-top: 30%;
+    width: 100%;
 }
 .top-container{
     margin:0px;
-    
+    background-color: #DDF8E8;  
 }
 h1{
     margin:0px;
@@ -29,9 +30,6 @@ img{
 }
 hr{
     width: 30%;
-}
-.specalization{
-    
 }
 .ul1{
     text-decoration: none;
