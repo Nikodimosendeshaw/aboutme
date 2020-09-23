@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    text-align: center;
+    font-family: fantasy;
+}
+.abc{
+
+    border: 50px;
+    background-color: #DDF8E8;
+    padding-top: 150px;
+}
+.top-container{
+    margin:0px;
+    
+}
+h1{
+    margin:0px;
+}
+img{
+    position: relative;
+}
+.bottom-cloud{
+    position: absolute;
+}
+.top-cloud{
+    position: relative;
+    right:10px;
+    left: 300px;
+}
+hr{
+    width: 30%;
+}
+.specalization{
+    
+}
+.ul1{
+    text-decoration: none;
+    text-align: center;
+}
+.tabel1{
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 10px;
+}
