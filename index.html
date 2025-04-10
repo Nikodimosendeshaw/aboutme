@@ -1,32 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>  
-</head>
-  <body class="bg-gray-100 text-gray-800 font-sans">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+  </head>
+
+  <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans">
 
     <!-- Header -->
-    <header class="bg-white shadow-md p-6">
+    <header class="bg-white dark:bg-gray-800 shadow-md p-6">
       <div class="max-w-6xl mx-auto flex justify-between items-center">
         <h1 class="text-2xl font-bold">Nikodimos Endeshaw</h1>
         <nav>
           <ul class="flex gap-4">
-            <li><a href="#about" class="hover:text-blue-500">About</a></li>
-            <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
-            <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+            <li class="p-1 m-1"><a href="#about" class="hover:text-blue-500">About</a></li>
+            <li class="p-1 m-1"><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+            <li class="p-1 m-1"><a  href="#contact" class="hover:text-blue-500">Contact</a></li>
+            <li ><button id="toggle-theme" class="p-1 m-1 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition" onclick="document.documentElement.classList.toggle('dark')">
+                <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71m16.97 0l-.71-.71M4.05 4.05l-.71-.71M21 12h1M2 12H1m5.64 6.36l.71-.71M17.66 6.34l.71-.71M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                </svg>
+                <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+                </svg>
+              </button>
+            </li>
           </ul>
+          
         </nav>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-blue-50 py-12">
+    <section class="bg-blue-50 dark:bg-gray-700 py-12">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-semibold mb-2">Hi, I'm Nikodimos 👋</h2>
-        <p class="text-lg text-gray-600">Full-stack developer based in Addis Ababa, Ethiopia. I build modern websites and mobile apps using Laravel and Flutter.</p>
+        <p class="text-lg text-gray-600 dark:text-gray-300">Full-stack developer based in Addis Ababa, Ethiopia. I build modern websites and mobile apps using Laravel and Flutter.</p>
       </div>
     </section>
 
@@ -34,129 +50,153 @@
     <section id="about" class="py-12 px-4">
       <div class="max-w-3xl mx-auto">
         <h3 class="text-2xl font-semibold mb-4">About Me</h3>
-        <p class="text-gray-700 leading-relaxed">
-          I'm a passionate developer with a focus on solving real-world problems using modern web and mobile technologies. Currently working at p6dev.com, and building a ride-sharing app using Flutter and Laravel. I love learning, and I'm always looking for new challenges and collaborations.
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+          I'm a passionate developer with a focus on solving real-world problems using modern web and mobile technologies...
         </p>
       </div>
     </section>
 
-   <!-- Recent Work Section -->
-<section id="work" class="py-16 bg-white">
+<!-- Recent Work Section -->
+<section id="work" class="py-16 bg-white dark:bg-gray-900">
     <div class="max-w-6xl mx-auto px-4">
       <!-- Section Header -->
       <div class="text-center mb-12">
-        <h3 class="text-3xl font-bold">
-          Recent <span class="text-blue-600">Work</span>
+        <h3 class="text-3xl font-bold text-gray-900 dark:text-white">
+          Recent <span class="text-blue-600 dark:text-blue-400">Work</span>
         </h3>
         <div class="w-20 h-1 bg-blue-500 mx-auto my-4"></div>
-        <p class="text-gray-600 max-w-xl mx-auto">
-          A brief overview of the project, its purpose, and the value it provides.
+        <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+          A brief overview of the projects I've worked on. These showcase my design, frontend, and backend development skills.
         </p>
       </div>
   
-   
-  
       <!-- Work Items Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="work-items">
-        <!-- Item -->
-        <div class="website app">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/taem.png" alt="Taem Bakery" class="w-full h-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Template Work Item -->
+        <!-- Repeat this block for each project -->
+        <div class="website app bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/taem.png" alt="Taem Bakery" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
               <h4 class="text-lg font-bold">Bakery</h4>
-              <h6 class="text-sm">Taem Bakery</h6>
+              <p class="text-sm">Taem Bakery</p>
             </div>
           </div>
-          <a href="https://taembakery.com/" target="_blank" class="block text-center text-blue-600 mt-2">Taem Bakery</a>
+          <div class="p-4 text-center">
+            <a href="https://taembakery.com/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Taem Bakery</a>
+          </div>
         </div>
   
-        <!-- Repeat the above block for each project -->
-        <div class="website">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/apace.png" alt="Apace" class="w-full h-auto">
+        <!-- Apace Travel -->
+        <div class="website bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/apace.png" alt="Apace" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
-              <h4 class="text-lg font-bold">Visit Site</h4>
-              <h6 class="text-sm">Apace Travel Advisors</h6>
+              <h4 class="text-lg font-bold">Travel Advisor</h4>
+              <p class="text-sm">Apace Travel Advisors</p>
             </div>
           </div>
-          <a href="https://apacetraveladvisors.com/" target="_blank" class="block text-center text-blue-600 mt-2">Apace Travel Advisors</a>
+          <div class="p-4 text-center">
+            <a href="https://apacetraveladvisors.com/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Apace Travel</a>
+          </div>
         </div>
   
-        <div class="website wordpress">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/raw.png" alt="Raw Net" class="w-full h-auto">
+        <!-- Raw Net -->
+        <div class="website wordpress bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/raw.png" alt="Raw Net" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
               <h4 class="text-lg font-bold">East African Company</h4>
-              <h6 class="text-sm">Raw Net</h6>
+              <p class="text-sm">Raw Net</p>
             </div>
           </div>
-          <a href="https://raw-net.com/" target="_blank" class="block text-center text-blue-600 mt-2">Raw Net</a>
+          <div class="p-4 text-center">
+            <a href="https://raw-net.com/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Raw Net</a>
+          </div>
         </div>
   
-        <div class="website">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/bmk.png" alt="BMK" class="w-full h-auto">
+        <!-- BMK -->
+        <div class="website bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/bmk.png" alt="BMK" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
               <h4 class="text-lg font-bold">Geo-Engineering</h4>
-              <h6 class="text-sm">BMK</h6>
+              <p class="text-sm">BMK</p>
             </div>
           </div>
-          <a href="https://bmkgeo.com/" target="_blank" class="block text-center text-blue-600 mt-2">BMK</a>
+          <div class="p-4 text-center">
+            <a href="https://bmkgeo.com/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Visit BMK</a>
+          </div>
         </div>
   
-        <div class="website">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/gorgor.png" alt="Gorgor Import" class="w-full h-auto">
+        <!-- Gorgor Import -->
+        <div class="website bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/gorgor.png" alt="Gorgor Import" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
               <h4 class="text-lg font-bold">Import and Trade</h4>
-              <h6 class="text-sm">Gorgor Import</h6>
+              <p class="text-sm">Gorgor Import</p>
             </div>
           </div>
-          <a href="https://gorgorpapers.com/" target="_blank" class="block text-center text-blue-600 mt-2">Gorgor Import</a>
+          <div class="p-4 text-center">
+            <a href="https://gorgorpapers.com/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Gorgor Import</a>
+          </div>
         </div>
   
-        <div class="website">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/asal.png" alt="Asal Impex" class="w-full h-auto">
+        <!-- Asal Impex -->
+        <div class="website bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/asal.png" alt="Asal Impex" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
               <h4 class="text-lg font-bold">Chemical Company</h4>
-              <h6 class="text-sm">Asal Impex</h6>
+              <p class="text-sm">Asal Impex</p>
             </div>
           </div>
-          <a href="https://asalchemicals.com/" target="_blank" class="block text-center text-blue-600 mt-2">Asal Impex</a>
+          <div class="p-4 text-center">
+            <a href="https://asalchemicals.com/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Asal Impex</a>
+          </div>
         </div>
   
-        <div class="website">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/dafta.png" alt="Dafta Trading" class="w-full h-auto">
+        <!-- Dafta Trading -->
+        <div class="website bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/dafta.png" alt="Dafta Trading" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
               <h4 class="text-lg font-bold">Trading Companies</h4>
-              <h6 class="text-sm">Dafta Trading</h6>
+              <p class="text-sm">Dafta Trading</p>
             </div>
           </div>
-          <a href="https://daftatrading.com/" target="_blank" class="block text-center text-blue-600 mt-2">Dafta Trading</a>
+          <div class="p-4 text-center">
+            <a href="https://daftatrading.com/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Dafta Trading</a>
+          </div>
         </div>
   
-        <div class="website">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/arada.png" alt="Arada Mart" class="w-full h-auto">
+        <!-- Arada Mart -->
+        <div class="website bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/arada.png" alt="Arada Mart" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
-              <h4 class="text-lg font-bold">E-Companies</h4>
-              <h6 class="text-sm">Arada Mart</h6>
+              <h4 class="text-lg font-bold">E-Commerce</h4>
+              <p class="text-sm">Arada Mart</p>
             </div>
           </div>
-          <a href="https://aradamartkc.com/" target="_blank" class="block text-center text-blue-600 mt-2">Arada Mart</a>
+          <div class="p-4 text-center">
+            <a href="https://aradamartkc.com/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Arada Mart</a>
+          </div>
         </div>
   
-        <div class="offlineSystem">
-          <div class="relative group overflow-hidden rounded shadow-lg">
-            <img src="public/img/work/ymcc.png" alt="YMCC" class="w-full h-auto">
+        <!-- YMCC -->
+        <div class="offlineSystem bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition">
+          <div class="relative group">
+            <img src="public/img/work/ymcc.png" alt="YMCC" class="w-full h-56 object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-4">
-              <h4 class="text-lg font-bold">Hospital Management System</h4>
-              <h6 class="text-sm">YMCC</h6>
+              <h4 class="text-lg font-bold">Hospital System</h4>
+              <p class="text-sm">YMCC</p>
             </div>
           </div>
-          <a href="#" class="block text-center text-blue-600 mt-2">YMCC</a>
+          <div class="p-4 text-center">
+            <span class="text-gray-700 dark:text-gray-300">Private System (Offline)</span>
+          </div>
         </div>
       </div>
     </div>
@@ -164,17 +204,17 @@
   
 
     <!-- Contact Section -->
-    <section id="contact" class="py-12 px-4 bg-blue-50">
+    <section id="contact" class="py-12 px-4 bg-blue-50 dark:bg-gray-700">
       <div class="max-w-3xl mx-auto text-center">
         <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
-        <p class="mb-4 text-gray-700">Have a project or just want to say hi? Reach out!</p>
-        <p class="text-lg font-medium">📧 nikobdimos@gmail.com</p>
+        <p class="mb-4 text-gray-700 dark:text-gray-300">Have a project or just want to say hi? Reach out!</p>
+        <p class="text-lg font-medium">📧 <a href="mailto:nikobdimos@gmail.com">nikobdimos@gmail.com</a></p>
         <p class="text-lg font-medium">📱 +251 937 714 784</p>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white p-4 text-center text-sm text-gray-500">
+    <footer class="bg-white dark:bg-gray-800 p-4 text-center text-sm text-gray-500 dark:text-gray-400">
       &copy; 2025 Nikodimos Endeshaw. All rights reserved.
     </footer>
 
